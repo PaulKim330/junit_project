@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest //DB와 관련된 컴포넌트들만 메모리에 로딩
@@ -32,8 +34,17 @@ public class BookRepositoryTest {
         assertEquals(author, bookPS.getAuthor());
 
     }
+    @Test
     //2. 책 목록보기 Read
+    public void 책목록보기_test(){
+        //given
 
+        //when
+        List<Book> books = bookRepository.findAll();
+
+        //then
+        System.out.println(books.size());
+    }
     //3. 책 한건보기 Read-1
 
     //4. 책 수정 Update
